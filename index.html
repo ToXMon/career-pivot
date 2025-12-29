@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CareerPivot - SMS-first AI accountability coach for mid-career professionals. Turn daily frustration into a personalized career transition roadmap.">
+    <meta name="keywords" content="career pivot, career coach, SMS coaching, accountability, career transition">
+    <meta name="theme-color" content="#0a0a1a">
+    
+    <title>CareerPivot - Your SMS-First AI Accountability Coach</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #e5e7eb;
+            background-color: #0a0a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #a5b4fc;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #a5b4fc;
+            border: 2px solid #6366f1;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: #fff;
+        }
+
+        /* ===== HERO SECTION ===== */
+        #hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-headline {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .hero-subheadline {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #a5b4fc;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* ===== PROBLEM SECTION ===== */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .problem-card {
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 40px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .problem-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .problem-card p {
+            color: #a5b4fc;
+            line-height: 1.8;
+        }
+
+        /* ===== HOW IT WORKS SECTION ===== */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, transparent);
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .timeline::before {
+                display: block;
+            }
+        }
+
+        .timeline-item {
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-item h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .timeline-item p {
+            color: #a5b4fc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== PROOF SECTION ===== */
+        .founder-story {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 50px;
+            border-radius: 12px;
+            max-width: 800px;
+            margin: 60px auto;
+        }
+
+        .founder-story p {
+            color: #a5b4fc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .testimonial-quote {
+            color: #a5b4fc;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: #6366f1;
+            font-size: 0.9rem;
+        }
+
+        /* ===== PRICING SECTION ===== */
+        .pricing-card {
+            background: rgba(99, 102, 241, 0.1);
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            padding: 50px;
+            border-radius: 16px;
+            max-width: 500px;
+            margin: 60px auto;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        .price-tag {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .price-tag span {
+            font-size: 1.2rem;
+            color: #a5b4fc;
+        }
+
+        .price-regular {
+            color: #a5b4fc;
+            margin-bottom: 30px;
+            text-decoration: line-through;
+        }
+
+        .price-lock {
+            color: #6366f1;
+            font-weight: 600;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            color: #a5b4fc;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-checkmark {
+            color: #6366f1;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .urgency {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 8px;
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        /* ===== WAITLIST FORM SECTION ===== */
+        .form-container {
+            max-width: 600px;
+            margin: 60px auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #6366f1;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #6b7280;
+        }
+
+        .consent-group {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .consent-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: #6366f1;
+        }
+
+        .consent-text {
+            color: #a5b4fc;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .privacy-link {
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .privacy-link:hover {
+            text-decoration: underline;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            color: #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq-container {
+            max-width: 800px;
+            margin: 60px auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .faq-question:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #6366f1;
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6366f1;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-top: none;
+            padding: 20px;
+            color: #a5b4fc;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #a5b4fc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #6366f1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 50%;
+            color: #a5b4fc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #6366f1;
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+            color: #6b7280;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .section {
+                padding: 50px 20px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .founder-story {
+                padding: 30px 20px;
+            }
+
+            .pricing-card {
+                padding: 30px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .consent-group {
+                flex-direction: column;
+            }
+
+            .consent-group input[type="checkbox"] {
+                margin-top: 0;
+            }
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        @media (prefers-contrast: more) {
+            body {
+                color: #f3f4f6;
+            }
+
+            .btn-primary {
+                border: 2px solid #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section id="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-headline">Text Your Rant.<br><span class="gradient-text">Get a Plan.</span></h1>
+                <p class="hero-subheadline">Turn daily frustration into a personalized career transition roadmap. SMS-first AI coach for mid-career professionals ready to escape the golden handcuffs.</p>
+                <div class="hero-ctas">
+                    <a href="#waitlist" class="btn btn-primary">Join Founding Members ($19/month)</a>
+                    <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section id="problem" class="section">
+        <div class="container">
+            <h2 class="section-title">Stuck in the <span class="gradient-text">Golden Handcuffs?</span></h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😔</div>
+                    <h3>Emotionally Exhausted</h3>
+                    <p>High salary, low fulfillment. Venting every night but no action. You know something has to change, but the inertia is real.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⏳</div>
+                    <h3>Time-Poor</h3>
+                    <p>Can't dedicate 10+ hours weekly to career planning. Between work, family, and obligations, you're maxed out.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🌀</div>
+                    <h3>Paralyzed by Overwhelm</h3>
+                    <p>Too many paths, unclear starting point. The paradox of choice keeps you stuck. You need clarity, not another spreadsheet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section id="how-it-works" class="section">
+        <div class="container">
+            <h2 class="section-title">Your Daily <span class="gradient-text">Accountability Loop</span></h2>
+            <p class="section-subtitle">Five simple steps that turn frustration into momentum</p>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-number">1</div>
+                    <h4>Vent via SMS</h4>
+                    <p>Send your daily frustration, wins, or questions. No judgment. Raw thoughts.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-number">2</div>
+                    <h4>AI Understands</h4>
+                    <p>Sentiment analysis + theme extraction. Your coach learns what's really blocking you.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-number">3</div>
+                    <h4>Get Micro-Actions</h4>
+                    <p>15/30/60 min tasks sized to your time. Specific, achievable, tracked.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-number">4</div>
+                    <h4>Track Progress</h4>
+                    <p>Weekly plan updates + milestone reminders. You see the momentum building.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-number">5</div>
+                    <h4>Build Momentum</h4>
+                    <p>6-week → 6-month → 1-year transition roadmap. From rant to reality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROOF SECTION -->
+    <section id="proof" class="section">
+        <div class="container">
+            <h2 class="section-title">Built by Someone <span class="gradient-text">Who Gets It</span></h2>
+            <div class="founder-story">
+                <p>I'm using CareerPivot to transition from finance to product management. After 8 years optimizing portfolios, I realized I was optimizing the wrong thing—my life. Every task the bot generates, I complete. Why? Because they're micro-sized and specific. This is my proof of concept—and it's working. I've already landed 3 informational interviews, completed 2 product mini-courses, and built my first side project. Now I'm beta testing this system publicly to see if it works for others in the same boat.</p>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 80px; margin-bottom: 60px; color: #fff;">Early User Feedback</h3>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"I've been stuck for 3 years. Just texting my frustrations every morning, and suddenly I have clarity on what's actually holding me back. The micro-tasks are game-changing."</p>
+                    <p class="testimonial-author">Sarah Chen</p>
+                    <p class="testimonial-role">Senior Manager, Technology</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"As a consultant, I have zero time. But 15-min daily tasks? I can do that. Three weeks in and I've already made more progress than the previous year."</p>
+                    <p class="testimonial-author">Michael Rodriguez</p>
+                    <p class="testimonial-role">Management Consultant</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"This isn't therapy. It's not generic advice. It's literally building my transition plan in real-time based on my actual constraints and wins."</p>
+                    <p class="testimonial-author">Jessica Park</p>
+                    <p class="testimonial-role">Senior Investment Banker</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="section">
+        <div class="container">
+            <h2 class="section-title">Join as a <span class="gradient-text">Founding Member</span></h2>
+            <div class="pricing-card">
+                <div class="price-tag"><span>$</span>19<span>/month</span></div>
+                <p class="price-regular">Regular price: $39/month</p>
+                <p class="price-lock">Lock in founding price forever</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-checkmark">✓</span>
+                        <span>Daily SMS coaching (unlimited messages)</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-checkmark">✓</span>
+                        <span>Personalized transition roadmap</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-checkmark">✓</span>
+                        <span>Weekly progress updates</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-checkmark">✓</span>
+                        <span>Task tracking & accountability</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-checkmark">✓</span>
+                        <span>Priority support</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-checkmark">✓</span>
+                        <span>Founding member community access</span>
+                    </div>
+                </div>
+
+                <a href="#waitlist" class="btn btn-primary" style="width: 100%; margin-top: 30px;">Claim Your Spot</a>
+
+                <div class="urgency">🔥 Only 50 founding member spots available</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAITLIST FORM SECTION -->
+    <section id="waitlist" class="section">
+        <div class="container">
+            <h2 class="section-title">Start Your <span class="gradient-text">Transition Today</span></h2>
+            <div class="form-container">
+                <div class="success-message" id="successMessage">
+                    ✓ Welcome! Check your email for next steps.
+                </div>
+                <form id="waitlistForm" novalidate>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com">
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number (US) *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                        <div class="error-message" id="phoneError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Current Role</label>
+                        <input type="text" id="role" name="role" placeholder="e.g., Senior Manager, Finance">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dream">Dream Role / Direction</label>
+                        <input type="text" id="dream" name="dream" placeholder="e.g., Product Manager, Product Design, Startup Founder">
+                    </div>
+
+                    <div class="consent-group">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent" class="consent-text">
+                            I consent to receive SMS messages from CareerPivot for coaching, accountability, and plan updates. Standard message rates apply. <a href="#privacy" class="privacy-link">I can opt out anytime by texting STOP.</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="form-submit" id="submitBtn">Join Waitlist</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">Common <span class="gradient-text">Questions</span></h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does SMS coaching work?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        You text your coach whenever you have a thought, win, or frustration. Our AI analyzes your messages to identify patterns, themes, and blockers. Based on what we learn about your situation, we generate micro-sized tasks (15/30/60 min) you can accomplish with your current constraints. Weekly, we send you updates on themes and a prioritized roadmap.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if I don't know what I want to do next?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        That's exactly what CareerPivot solves. Most people don't have a clarity problem—they have an exploration problem. We start by asking you to vent about what you *don't* want. From those patterns, we build exploration tasks: 30 min research sprints, 1-hour informational interviews, mini skill experiments. Clarity emerges through action, not overthinking.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is this a therapist or career coach?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Neither and both. We're not licensed therapists (if you need mental health support, please reach out to a professional). We're not traditional career coaches (no 1-hour sessions, no $300/hr). We're accountability software with AI coaching. Think of us as your daily accountability partner who turns venting into action.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if I can't afford to take a pay cut?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        You don't have to. Many CareerPivot users are finding lateral moves (same pay, different company/role) or slow transitions. The constraint is a feature, not a bug. It forces creativity. We plan around your financial needs, not against them. Some users are building side projects that eventually become their main income.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much time do I need daily?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        As little as 15 minutes. You text a quick vent or win (2-3 min), and you get 1-3 tasks. One might be 15 min of research, another a 30-min informational interview, another a micro-skill experiment. No 10+ hour weekly commitment. Fits into real life.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I cancel anytime?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. No lock-in, no penalties. Founding members get the locked-in $19/month price forever if you stay, but there's zero obligation. Text STOP to opt out of SMS, or reply "cancel" and we'll handle the rest within 48 hours.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my data private?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. We don't sell data. We don't share SMS content with third parties. We use your messages to improve your coaching experience and aggregate insights for product development (anonymized). Full privacy policy <a href="#privacy" class="privacy-link">here</a>.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What happens after the founding member period?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Your $19/month price locks in forever. As we add features (premium integrations, group coaching, career community), you'll have the option to upgrade, but your base price stays locked. Founding members get first access to new features.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CareerPivot</h4>
+                    <p style="color: #a5b4fc;">SMS-first AI coaching for mid-career professionals ready to escape the golden handcuffs.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter">𝕏</a>
+                        <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">in</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#waitlist">Join Waitlist</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="mailto:support@careerpivot.com">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p style="color: #a5b4fc; margin-bottom: 10px;">
+                        <strong>Email:</strong><br>
+                        <a href="mailto:support@careerpivot.com">support@careerpivot.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CareerPivot. All rights reserved. Built with 💜 for people escaping the golden handcuffs.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+
+    <script>
+        // ===== VANTA.JS INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            VANTA.BIRDS({
+                el: "#hero-section",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                backgroundColor: 0x0a0a1a,
+                color1: 0x6366f1,
+                color2: 0x8b5cf6,
+                colorMode: "lerp",
+                birdSize: 1.2,
+                wingSpan: 20.00,
+                speedLimit: 5.00,
+                separation: 50.00,
+                alignment: 50.00,
+                cohesion: 50.00
+            });
+
+            // ===== FORM VALIDATION =====
+            const form = document.getElementById('waitlistForm');
+            const consentCheckbox = document.getElementById('consent');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+
+            // Update button disabled state based on consent
+            consentCheckbox.addEventListener('change', function() {
+                submitBtn.disabled = !this.checked;
+            });
+
+            // Set initial button state
+            submitBtn.disabled = !consentCheckbox.checked;
+
+            // Email validation
+            function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Phone validation (US format)
+            function validatePhone(phone) {
+                const phoneRegex = /^[\d\s\-\(\)]+$/;
+                const digitsOnly = phone.replace(/\D/g, '');
+                return phoneRegex.test(phone) && digitsOnly.length >= 10;
+            }
+
+            // Format phone number
+            function formatPhoneNumber(phone) {
+                const digitsOnly = phone.replace(/\D/g, '');
+                if (digitsOnly.length === 10) {
+                    return `(${digitsOnly.slice(0, 3)}) ${digitsOnly.slice(3, 6)}-${digitsOnly.slice(6)}`;
+                }
+                return phone;
+            }
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const email = document.getElementById('email');
+                const phone = document.getElementById('phone');
+                const emailError = document.getElementById('emailError');
+                const phoneError = document.getElementById('phoneError');
+
+                let isValid = true;
+
+                // Clear previous errors
+                emailError.textContent = '';
+                phoneError.textContent = '';
+
+                // Validate email
+                if (!email.value.trim()) {
+                    emailError.textContent = 'Email is required';
+                    isValid = false;
+                } else if (!validateEmail(email.value)) {
+                    emailError.textContent = 'Please enter a valid email address';
+                    isValid = false;
+                }
+
+                // Validate phone
+                if (!phone.value.trim()) {
+                    phoneError.textContent = 'Phone number is required';
+                    isValid = false;
+                } else if (!validatePhone(phone.value)) {
+                    phoneError.textContent = 'Please enter a valid US phone number';
+                    isValid = false;
+                }
+
+                // Validate consent
+                if (!consentCheckbox.checked) {
+                    alert('You must consent to SMS messages to continue');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Prepare form data
+                    const formData = {
+                        email: email.value.trim(),
+                        phone: formatPhoneNumber(phone.value.trim()),
+                        role: document.getElementById('role').value.trim(),
+                        dream: document.getElementById('dream').value.trim(),
+                        consent: true,
+                        timestamp: new Date().toISOString()
+                    };
+
+                    try {
+                        // Option 1: If using Formspree
+                        // Uncomment and update the form action attribute to use Formspree
+                        // Option 2: If using a backend API
+                        // const response = await fetch('/api/waitlist', {
+                        //     method: 'POST',
+                        //     headers: { 'Content-Type': 'application/json' },
+                        //     body: JSON.stringify(formData)
+                        // });
+
+                        // For now, log to console (replace with actual API call)
+                        console.log('Form data:', formData);
+
+                        // Show success message
+                        successMessage.style.display = 'block';
+                        form.style.display = 'none';
+
+                        // Optional: Reset form after a delay
+                        setTimeout(() => {
+                            form.reset();
+                            form.style.display = 'block';
+                            successMessage.style.display = 'none';
+                            submitBtn.disabled = true;
+                        }, 5000);
+
+                    } catch (error) {
+                        console.error('Error submitting form:', error);
+                        alert('There was an error submitting your form. Please try again.');
+                    }
+                }
+            });
+
+            // ===== FAQ ACCORDION =====
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    item.classList.toggle('active');
+                });
+            });
+
+            // ===== SCROLL ANIMATIONS =====
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe timeline items for fade-in animation
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                observer.observe(item);
+            });
+
+            // ===== SMOOTH SCROLL FIX FOR ANCHOR LINKS =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || href === '') return;
+                    
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+
+        // ===== VANTA.JS ERROR HANDLING =====
+        if (typeof VANTA === 'undefined') {
+            console.warn('Vanta.js failed to load. Check CDN connection.');
+        }
+    </script>
+
+    <!-- 
+    ===== REDDIT DISTRIBUTION RESOURCES =====
+    
+    REDDIT INTRO POST (50 words):
+    "Spent 8 years in finance feeling trapped. Built an SMS coach that turns daily venting into career transition tasks. Using it on myself to pivot to product/tech. Early access open for 50 founding members ($19/mo). Not selling - genuinely want feedback from people in the same boat."
+    
+    REDDIT RESPONSE TEMPLATES (value-first, no selling):
+    
+    Template 1 (Empathy + Framework):
+    "I felt this exact way at year 6. What helped: (1) 15-min daily micro-commitments instead of 'find 10 hours for a course', (2) tracking vent themes to see patterns, (3) constraints-aware planning (mortgage/kids = 12-18mo runway, not 3mo). Happy to share the framework I'm using if helpful."
+    
+    Template 2 (Tactical Advice):
+    "The paralysis is real. One thing that worked for me: pick ONE skill gap, spend 30 min/day for 2 weeks, build 1 tiny project. Don't optimize the perfect path - just start. I'm documenting my transition daily via SMS accountability (sounds weird but it's working). DM if you want to compare notes."
+    
+    Template 3 (Community Building):
+    "Same boat - high salary, low fulfillment, family obligations. Started tracking my daily vents and realized 80% were about [specific theme]. That clarity helped me focus. I'm testing an SMS-based accountability system on myself (product builder mindset). If anyone wants to beta test or swap progress updates, let me know."
+    -->
+
+</body>
+</html>
