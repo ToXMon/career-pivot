@@ -377,118 +377,63 @@
             font-weight: 600;
         }
 
-        /* ===== WAITLIST FORM SECTION ===== */
-        .form-container {
-            max-width: 600px;
-            margin: 60px auto;
+        /* ===== GOOGLE FORM EMBED SECTION ===== */
+        .google-form-container {
+            max-width: 700px;
+            margin: 40px auto 0;
+            position: relative;
         }
 
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #fff;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            background: rgba(99, 102, 241, 0.05);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 8px;
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            background: rgba(99, 102, 241, 0.1);
-            border-color: #6366f1;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #6b7280;
-        }
-
-        .consent-group {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-
-        .consent-group input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-top: 2px;
-            cursor: pointer;
-            accent-color: #6366f1;
-        }
-
-        .consent-text {
-            color: #a5b4fc;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .privacy-link {
-            color: #6366f1;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .privacy-link:hover {
-            text-decoration: underline;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .form-submit:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4);
-        }
-
-        .form-submit:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .success-message {
-            display: none;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid #10b981;
-            color: #10b981;
+        .form-wrapper {
+            background: linear-gradient(145deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 16px;
             padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            text-align: center;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15),
+                        0 0 40px rgba(139, 92, 246, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .error-message {
-            color: #ef4444;
-            font-size: 0.85rem;
-            margin-top: 5px;
+        .form-wrapper:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 25px 70px rgba(99, 102, 241, 0.2),
+                        0 0 50px rgba(139, 92, 246, 0.15);
+        }
+
+        .form-wrapper iframe {
+            display: block;
+            border-radius: 12px;
+            background: #ffffff;
+            min-height: 800px;
+            max-height: 1200px;
+        }
+
+        /* Responsive adjustments for the form */
+        @media (max-width: 768px) {
+            .google-form-container {
+                margin: 30px 10px 0;
+            }
+            
+            .form-wrapper {
+                padding: 12px;
+                border-radius: 12px;
+            }
+            
+            .form-wrapper iframe {
+                min-height: 900px;
+                border-radius: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-wrapper {
+                padding: 8px;
+            }
+            
+            .form-wrapper iframe {
+                min-height: 1000px;
+            }
         }
 
         /* ===== FAQ SECTION ===== */
@@ -841,42 +786,21 @@
     <section id="waitlist" class="section">
         <div class="container">
             <h2 class="section-title">Start Your <span class="gradient-text">Transition Today</span></h2>
-            <div class="form-container">
-                <div class="success-message" id="successMessage">
-                    ✓ Welcome! Check your email for next steps.
+            <p class="section-subtitle">Join 50 founding members getting daily SMS accountability for their career pivot.</p>
+            <div class="google-form-container">
+                <div class="form-wrapper">
+                    <iframe 
+                        src="https://docs.google.com/forms/d/e/1FAIpQLScEI7pYDRjToxKymbu6-x15cbeEHGSWSfqIGOtAaDV3rQ-uHg/viewform?embedded=true" 
+                        width="100%" 
+                        height="1116" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        title="CareerPivot Waitlist Form"
+                        loading="lazy">
+                        Loading…
+                    </iframe>
                 </div>
-                <form id="waitlistForm" novalidate>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required placeholder="you@example.com">
-                        <div class="error-message" id="emailError"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number (US) *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
-                        <div class="error-message" id="phoneError"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="role">Current Role</label>
-                        <input type="text" id="role" name="role" placeholder="e.g., Senior Manager, Finance">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="dream">Dream Role / Direction</label>
-                        <input type="text" id="dream" name="dream" placeholder="e.g., Product Manager, Product Design, Startup Founder">
-                    </div>
-
-                    <div class="consent-group">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent" class="consent-text">
-                            I consent to receive SMS messages from CareerPivot for coaching, accountability, and plan updates. Standard message rates apply. <a href="#privacy" class="privacy-link">I can opt out anytime by texting STOP.</a>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="form-submit" id="submitBtn">Join Waitlist</button>
-                </form>
             </div>
         </div>
     </section>
@@ -1038,123 +962,6 @@
                 separation: 50.00,
                 alignment: 50.00,
                 cohesion: 50.00
-            });
-
-            // ===== FORM VALIDATION =====
-            const form = document.getElementById('waitlistForm');
-            const consentCheckbox = document.getElementById('consent');
-            const submitBtn = document.getElementById('submitBtn');
-            const successMessage = document.getElementById('successMessage');
-
-            // Update button disabled state based on consent
-            consentCheckbox.addEventListener('change', function() {
-                submitBtn.disabled = !this.checked;
-            });
-
-            // Set initial button state
-            submitBtn.disabled = !consentCheckbox.checked;
-
-            // Email validation
-            function validateEmail(email) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(email);
-            }
-
-            // Phone validation (US format)
-            function validatePhone(phone) {
-                const phoneRegex = /^[\d\s\-\(\)]+$/;
-                const digitsOnly = phone.replace(/\D/g, '');
-                return phoneRegex.test(phone) && digitsOnly.length >= 10;
-            }
-
-            // Format phone number
-            function formatPhoneNumber(phone) {
-                const digitsOnly = phone.replace(/\D/g, '');
-                if (digitsOnly.length === 10) {
-                    return `(${digitsOnly.slice(0, 3)}) ${digitsOnly.slice(3, 6)}-${digitsOnly.slice(6)}`;
-                }
-                return phone;
-            }
-
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-
-                const email = document.getElementById('email');
-                const phone = document.getElementById('phone');
-                const emailError = document.getElementById('emailError');
-                const phoneError = document.getElementById('phoneError');
-
-                let isValid = true;
-
-                // Clear previous errors
-                emailError.textContent = '';
-                phoneError.textContent = '';
-
-                // Validate email
-                if (!email.value.trim()) {
-                    emailError.textContent = 'Email is required';
-                    isValid = false;
-                } else if (!validateEmail(email.value)) {
-                    emailError.textContent = 'Please enter a valid email address';
-                    isValid = false;
-                }
-
-                // Validate phone
-                if (!phone.value.trim()) {
-                    phoneError.textContent = 'Phone number is required';
-                    isValid = false;
-                } else if (!validatePhone(phone.value)) {
-                    phoneError.textContent = 'Please enter a valid US phone number';
-                    isValid = false;
-                }
-
-                // Validate consent
-                if (!consentCheckbox.checked) {
-                    alert('You must consent to SMS messages to continue');
-                    isValid = false;
-                }
-
-                if (isValid) {
-                    // Prepare form data
-                    const formData = {
-                        email: email.value.trim(),
-                        phone: formatPhoneNumber(phone.value.trim()),
-                        role: document.getElementById('role').value.trim(),
-                        dream: document.getElementById('dream').value.trim(),
-                        consent: true,
-                        timestamp: new Date().toISOString()
-                    };
-
-                    try {
-                        // Option 1: If using Formspree
-                        // Uncomment and update the form action attribute to use Formspree
-                        // Option 2: If using a backend API
-                        // const response = await fetch('/api/waitlist', {
-                        //     method: 'POST',
-                        //     headers: { 'Content-Type': 'application/json' },
-                        //     body: JSON.stringify(formData)
-                        // });
-
-                        // For now, log to console (replace with actual API call)
-                        console.log('Form data:', formData);
-
-                        // Show success message
-                        successMessage.style.display = 'block';
-                        form.style.display = 'none';
-
-                        // Optional: Reset form after a delay
-                        setTimeout(() => {
-                            form.reset();
-                            form.style.display = 'block';
-                            successMessage.style.display = 'none';
-                            submitBtn.disabled = true;
-                        }, 5000);
-
-                    } catch (error) {
-                        console.error('Error submitting form:', error);
-                        alert('There was an error submitting your form. Please try again.');
-                    }
-                }
             });
 
             // ===== FAQ ACCORDION =====
